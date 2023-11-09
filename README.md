@@ -5,16 +5,12 @@
 
 # Tricky JavaScript
 ```javascript
-const myPromise = new Promise( (resolve, reject, name) => {
-    ((nameArg) => {
-        if(nameArg === "john") {
-            console.log("success");
-            resolve(nameArg);
-        }
-    })(name);
-})
 
+const x = () => {
+    return function () {
+        console.log("hello");
+    }
+}
 
-
-myPromise()
+x()(); // hello = in the console
 ```
