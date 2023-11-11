@@ -55,7 +55,8 @@ console.log("hello world");
 <br>
 
 # Use of promise 
-It checks if the password is 
+If password is correct, it promises an object<br>
+If the password is wrong it promises an error 
 
 ```javascript
 const x = (password) => {
