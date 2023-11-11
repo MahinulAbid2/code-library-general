@@ -82,3 +82,35 @@ x("helloworld")
     console.log(err);
 } )
 ```
+
+<br>
+<br>
+
+# behaviour await
+
+```javascript
+const getData = async () => {  //created async function
+
+    console.log("testing")
+    let y = await "Hello World";
+    console.log(y);
+    console.log("testing Two")
+    
+}
+
+getData(); 
+console.log(1);
+console.log(2);
+
+```
+<br>
+
+```
+output:
+
+testing
+1
+2
+Hello World
+testing Two
+```
