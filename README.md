@@ -49,3 +49,35 @@ console.log("hello world");
 <br>
 
 > Even if i called the x()  before hello world console for its async functionalities, x() result was logged in console after printing hello world
+
+<br>
+<br>
+<br>
+
+# Use of promise 
+It checks if the password is 
+
+```javascript
+const x = (password) => {
+    const a = "here is your data";
+    return new Promise( (resolve, reject ) => {
+        if(password === "helloworld") {
+            resolve(a);
+        }
+        else {
+            reject(`Error: The password is wrong`);
+        }
+    })
+}
+
+
+x("helloworld")
+
+.then( ( res ) => {
+    console.log(res);
+})
+
+.catch( ( err ) => {
+    console.log(err);
+} )
+```
