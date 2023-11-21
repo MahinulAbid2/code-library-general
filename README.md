@@ -114,3 +114,85 @@ testing
 Hello World
 testing Two
 ```
+
+
+<br>
+<br>
+
+# A code snippet provided by chatGPT that supports SOLID PRINCIPLES
+```javascript
+// Separate classes for different responsibilities
+
+class ImageUploader {
+    uploadImage(image) {
+        // Logic to upload the image to the desired location (e.g., S3 bucket)
+        // Return the image URL or any necessary metadata
+    }
+}
+
+class DataHandler {
+    prepareImageData(productImage, thumbnailImage) {
+        // Logic to format image data before saving
+        return {
+            productImage: productImage,
+            thumbnailImage: thumbnailImage,
+            // Add any additional necessary formatting
+        };
+    }
+}
+
+class Database {
+    saveData(data) {
+        // Logic to save data to the database
+    }
+}
+
+// High-level class orchestrating the flow
+
+class DataProcessor {
+    constructor(imageUploader, dataHandler, database) {
+        this.imageUploader = imageUploader;
+        this.dataHandler = dataHandler;
+        this.database = database;
+    }
+
+    processData(data) {
+        const { productImage, thumbnailImage } = data;
+
+        // Handle image uploading
+        const productImageURL = this.imageUploader.uploadImage(productImage);
+        const thumbnailImageURL = this.imageUploader.uploadImage(thumbnailImage);
+
+        // Prepare formatted image data
+        const formattedImageData = this.dataHandler.prepareImageData(
+            productImageURL,
+            thumbnailImageURL
+        );
+
+        // Save data to the database
+        this.database.saveData(formattedImageData);
+    }
+}
+
+// Usage
+
+// Instantiate necessary classes
+const uploader = new ImageUploader();
+const handler = new DataHandler();
+const db = new Database();
+
+// Create a data processor and pass in the necessary dependencies
+const dataProcessor = new DataProcessor(uploader, handler, db);
+
+// Example data
+const data = {
+    productImage: /* Image data */,
+    thumbnailImage: /* Thumbnail data */,
+    // Other data fields
+};
+
+// Process the data
+dataProcessor.processData(data);
+
+```
+
